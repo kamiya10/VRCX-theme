@@ -2,6 +2,6 @@
 
 ## Screenshots
 
-[!feed](pink-feed.png)
+![feed](pink-feed.png)
 
-[!user](pink-user.png)
+![user](pink-user.png)
