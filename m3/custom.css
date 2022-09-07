@@ -627,7 +627,7 @@ input[type=text], input[type=number], .el-textarea__inner {
 
 .el-switch__core:after {
     display: none;
-    transition: left 200ms cubic-bezier(0, .5, .5, 1.5);;
+    transition: left 200ms cubic-bezier(0, .5, .5, 1.5);
 }
 
 
