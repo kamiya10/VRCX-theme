@@ -1,4 +1,4 @@
 # VRCX-theme
 
-[pink](./pink)
-[Material 3](./m3)
+* [pink](./pink)
+* [Material 3](./m3)
