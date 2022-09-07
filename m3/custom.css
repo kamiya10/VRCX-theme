@@ -372,6 +372,7 @@ input[type=text], input[type=number], .el-textarea__inner {
     top: 14px;
     font-size: 24px;
     transform: translate(-50%);
+    color: rgb(var(--md-sys-color-on-surface-variant))
 }
 .el-menu-item:focus, .el-menu-item:hover{
     background-color: rgba(var(--md-sys-color-on-surface-variant), .08);
@@ -388,7 +389,7 @@ input[type=text], input[type=number], .el-textarea__inner {
 .el-menu-item {
     color: rgb(var(--md-sys-color-on-surface-variant));
 }
-.el-menu-item.is-active {
+.x-menu-container>.el-menu>.el-menu-item.is-active>div>i {
     color: rgb(var(--md-sys-color-primary));
 }
 .el-menu-item.notify::after {
