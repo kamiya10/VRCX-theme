@@ -6,24 +6,28 @@
 
 body {
     --md-sys-color-primary: 208, 188, 255;
+    --md-sys-color-on-primary: 55, 30, 115;
     --md-sys-color-primary-container: 79, 55, 139;
+    --md-sys-color-on-primary-container: 234, 221, 255;
     --md-sys-color-secondary: 204, 194, 220;
     --md-sys-color-secondary-container: 74, 68, 88;
-    --md-sys-color-surface: 28, 27, 31;
-    --md-sys-color-surface-variant: 73, 69, 79;
-    --md-sys-color-background: 28, 27, 31;
-    --md-sys-color-on-primary: 55, 30, 115;
-    --md-sys-color-on-primary-container: 234, 221, 255;
     --md-sys-color-on-secondary-container: 232, 222, 248;
-    --md-sys-color-on-surface: 230, 225, 229;
-    --md-sys-color-on-surface-variant: 202, 196, 208;
-    --md-sys-color-on-background: 230, 225, 229;
     --md-sys-color-error: 242, 184, 181;
+    --md-sys-color-surface: 28, 27, 31;
+    --md-sys-color-on-surface: 230, 225, 229;
+    --md-sys-color-surface-variant: 73, 69, 79;
+    --md-sys-color-on-surface-variant: 202, 196, 208;
+    --md-sys-color-background: 28, 27, 31;
+    --md-sys-color-on-background: 230, 225, 229;
     --md-sys-color-outline: 147, 143, 153;
     --md-sys-color-outline-variant: 68, 71, 70;
     --md-sys-color-inverse-surface: 230, 225, 229;
     --md-sys-color-inverse-on-surface: 49, 48, 51;
     --md-sys-color-inverse-primary:  103, 80, 164;
+
+    --md-sys-color-inverse-surface: 236, 223, 224;
+    --md-sys-color-inverse-on-surface: 54, 47, 48;
+    --md-sys-color-inverse-primary: 154, 64, 88;
     --md-sys-color-surface-1: linear-gradient(0deg, rgba(var(--md-sys-color-primary), .05), rgba(var(--md-sys-color-primary), .05)), rgb(var(--md-sys-color-surface));
     --md-sys-color-surface-2: linear-gradient(0deg, rgba(var(--md-sys-color-primary), .08), rgba(var(--md-sys-color-primary), .08)), rgb(var(--md-sys-color-surface));
     --md-sys-color-surface-3: linear-gradient(0deg, rgba(var(--md-sys-color-primary), .11), rgba(var(--md-sys-color-primary), .11)), rgb(var(--md-sys-color-surface));
@@ -121,22 +125,16 @@ div[style*="margin: 0px 0px 10px;"] {
     border: none;
 }
 
-.x-app, .x-container, .el-collapse-item__wrap {
-    background-color: rgba(var(--md-sys-color-surface));
+.x-app, .x-container, .el-collapse-item__wrap, .x-login-container {
+    background-color: rgba(var(--md-sys-color-background));
 }
 
 .x-aside-container {
     background: var(--md-sys-color-surface-1);
 }
 
-.el-dialog {
-    border-radius: 28px;
-    padding: 24px;
-    background: var(--md-sys-color-surface-3);
-}
-
-.el-dialog__body {
-    padding: 0 !important;
+.x-login-container p {
+    color: rgb(var(--md-sys-color-on-background));
 }
 
 .el-tabs--card>.el-tabs__header .el-tabs__item {
@@ -1161,7 +1159,13 @@ img.x-link.el-popover__reference {
     overflow-y: auto;
 }
 .el-dialog {
+    border-radius: 28px;
+    padding: 24px;
+    background: var(--md-sys-color-surface-3);
     margin: auto !important;
+}
+.el-dialog__body {
+    padding: 0 !important;
 }
 .el-message-box {
     background: var(--md-sys-color-surface-3);
