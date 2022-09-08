@@ -213,6 +213,9 @@ div[style*="margin: 0px 0px 10px;"] {
 .el-range-editor.is-active, .el-range-editor.is-active:hover, .el-select .el-input.is-focus .el-input__inner, .el-input.is-active .el-input__inner, .el-input__inner:focus, .el-textarea__inner:focus {
     border: 2px solid rgb(var(--md-sys-color-primary));
 }
+input[type=text]::placeholder, input[type=number]::placeholder, .el-textarea__inner::placeholder {
+    color: rgb(var(--md-sys-color-on-surface-variant));
+}
 input[type=text], input[type=number], .el-textarea__inner {
     color: rgb(var(--md-sys-color-on-surface));
     font-family: var(--md-sys-typescale-body-large-font);
