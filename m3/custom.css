@@ -846,8 +846,6 @@ input[type=text], input[type=number], .el-textarea__inner {
     padding: 0;
     margin: 0 4px;
     border-radius: 20px;
-    background-color: transparent;
-    color: rgb(var(--md-sys-color-on-secondary-container));
     font-family: var(--md-sys-typescale-label-large-font);
     line-height: var(--md-sys-typescale-label-large-line-height);
     font-size: var(--md-sys-typescale-label-large-size);
@@ -856,6 +854,13 @@ input[type=text], input[type=number], .el-textarea__inner {
     border: none;
     transition: background-color .1s ease-in-out,
                 color .1s ease-in-out;
+}
+.el-button.el-button--text:not(.el-button--primary,.is-disabled)
+.el-button.el-button--text:not(.el-button--primary,.is-disabled):hover
+.el-button.el-button--text:not(.el-button--primary,.is-disabled):focus
+.el-button.el-button--text:not(.el-button--primary,.is-disabled):active {
+    background-color: transparent;
+    color: rgb(var(--md-sys-color-on-secondary-container));
 }
 .el-button.el-button--text:not(.el-button--primary).is-disabled {
     cursor: not-allowed;
@@ -879,19 +884,11 @@ input[type=text], input[type=number], .el-textarea__inner {
     padding-right: 12px;
 }
 .el-button.el-button--text:not(.el-button--primary,.is-disabled):hover {
-    background-color: rgb(87, 80, 101);
-    color: rgb(var(--md-sys-color-on-secondary-container));
-    border: none;
+    background-color: rgba(var(--md-sys-color-primary), 0.08);
 }
-.el-button.el-button--text:not(.el-button--primary,.is-disabled):focus {
-    background-color: rgb(87, 80, 101);
-    color: rgb(var(--md-sys-color-on-secondary-container));
-    border: none;
-}
+.el-button.el-button--text:not(.el-button--primary,.is-disabled):focus,
 .el-button.el-button--text:not(.el-button--primary,.is-disabled):active {
-    background-color: rgb(93, 86, 107);
-    color: rgb(var(--md-sys-color-on-secondary-container));
-    border: none;
+    background-color: rgba(var(--md-sys-color-primary), 0.12);
 }
 
 
