@@ -855,9 +855,9 @@ input[type=text], input[type=number], .el-textarea__inner {
     transition: background-color .1s ease-in-out,
                 color .1s ease-in-out;
 }
-.el-button.el-button--text:not(.el-button--primary,.is-disabled)
-.el-button.el-button--text:not(.el-button--primary,.is-disabled):hover
-.el-button.el-button--text:not(.el-button--primary,.is-disabled):focus
+.el-button.el-button--text:not(.el-button--primary,.is-disabled),
+.el-button.el-button--text:not(.el-button--primary,.is-disabled):hover,
+.el-button.el-button--text:not(.el-button--primary,.is-disabled):focus,
 .el-button.el-button--text:not(.el-button--primary,.is-disabled):active {
     background-color: transparent;
     color: rgb(var(--md-sys-color-on-secondary-container));
