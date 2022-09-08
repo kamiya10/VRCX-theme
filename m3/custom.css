@@ -10,10 +10,6 @@ body {
     --md-sys-color-secondary: 204, 194, 220;
     --md-sys-color-secondary-container: 74, 68, 88;
     --md-sys-color-surface: 28, 27, 31;
-    --md-sys-color-surface-1: linear-gradient(0deg, rgba(var(--md-sys-color-primary), .05), rgba(var(--md-sys-color-primary), .05)), rgb(var(--md-sys-color-surface));
-    --md-sys-color-surface-2: linear-gradient(0deg, rgba(var(--md-sys-color-primary), .08), rgba(var(--md-sys-color-primary), .08)), rgb(var(--md-sys-color-surface));
-    --md-sys-color-surface-3: linear-gradient(0deg, rgba(var(--md-sys-color-primary), .11), rgba(var(--md-sys-color-primary), .11)), rgb(var(--md-sys-color-surface));
-    --md-sys-color-surface-4: linear-gradient(0deg, rgba(var(--md-sys-color-primary), .14), rgba(var(--md-sys-color-primary), .14)), rgb(var(--md-sys-color-surface));
     --md-sys-color-surface-variant: 73, 69, 79;
     --md-sys-color-background: 28, 27, 31;
     --md-sys-color-on-primary: 55, 30, 115;
@@ -28,6 +24,10 @@ body {
     --md-sys-color-inverse-surface: 230, 225, 229;
     --md-sys-color-inverse-on-surface: 49, 48, 51;
     --md-sys-color-inverse-primary:  103, 80, 164;
+    --md-sys-color-surface-1: linear-gradient(0deg, rgba(var(--md-sys-color-primary), .05), rgba(var(--md-sys-color-primary), .05)), rgb(var(--md-sys-color-surface));
+    --md-sys-color-surface-2: linear-gradient(0deg, rgba(var(--md-sys-color-primary), .08), rgba(var(--md-sys-color-primary), .08)), rgb(var(--md-sys-color-surface));
+    --md-sys-color-surface-3: linear-gradient(0deg, rgba(var(--md-sys-color-primary), .11), rgba(var(--md-sys-color-primary), .11)), rgb(var(--md-sys-color-surface));
+    --md-sys-color-surface-4: linear-gradient(0deg, rgba(var(--md-sys-color-primary), .14), rgba(var(--md-sys-color-primary), .14)), rgb(var(--md-sys-color-surface));
     --md-sys-typescale-headline-medium-font: "Google Sans", "Noto Sans", "Noto Sans TC", "Noto Sans JP", "Noto Sans SC", "Roboto", sans-serif;
     --md-sys-typescale-headline-medium-line-height: 36px;
     --md-sys-typescale-headline-medium-size: 28px;
@@ -121,8 +121,12 @@ div[style*="margin: 0px 0px 10px;"] {
     border: none;
 }
 
-.x-app, .x-container, .x-aside-container, .el-collapse-item__wrap {
+.x-app, .x-container, .el-collapse-item__wrap {
     background-color: rgba(var(--md-sys-color-surface));
+}
+
+.x-aside-container {
+    background: var(--md-sys-color-surface-1);
 }
 
 .el-dialog {
@@ -674,8 +678,8 @@ input[type=text], input[type=number], .el-textarea__inner {
 }
 
 .el-radio-button--mini .el-radio-button__orig-radio:not(:disabled):checked+.el-radio-button__inner {
-    background-color: rgba(var(--md-sys-color-secondary-container));
-    color: rgba(var(--md-sys-color-on-secondary-container));
+    background-color: rgb(var(--md-sys-color-secondary-container));
+    color: rgb(var(--md-sys-color-on-secondary-container));
     border-color: rgb(var(--md-sys-color-outline));
     box-shadow: none;
 }
@@ -717,6 +721,23 @@ input[type=text], input[type=number], .el-textarea__inner {
 
 /* ---------- Filled button ---------- */
 
+.el-button {
+    position: relative;
+}
+.el-button::after {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    left: 0;
+    top: 0;
+    border-radius: 20px;
+    transition: background-color .1s ease-in-out;
+}
+
+
 .el-button.el-button--primary:not(.el-button--text) {
     height: 40px;
     padding: 0;
@@ -754,17 +775,12 @@ input[type=text], input[type=number], .el-textarea__inner {
 .el-button.el-button--primary:not(.el-button--text) > span:last-child {
     padding-right: 24px;
 }
-.el-button.el-button--primary:not(.el-button--text,.is-disabled):hover {
-    background-color: rgb(196, 175, 244);
-    border: none;
+.el-button.el-button--primary:not(.el-button--text,.is-disabled):hover::after {
+    background-color: rgba(var(--md-sys-color-on-primary), .08);
 }
-.el-button.el-button--primary:not(.el-button--text,.is-disabled):focus {
-    background-color: rgb(196, 175, 244);
-    border: none;
-}
-.el-button.el-button--primary:not(.el-button--text,.is-disabled):active {
-    background-color: rgb(190, 169, 238);
-    border: none;
+.el-button.el-button--primary:not(.el-button--text,.is-disabled):focus::after,
+.el-button.el-button--primary:not(.el-button--text,.is-disabled):active::after {
+    background-color: rgba(var(--md-sys-color-on-primary), .12);
 }
 
 /* ---------- Filled tonal button ---------- */
@@ -774,8 +790,6 @@ input[type=text], input[type=number], .el-textarea__inner {
     padding: 0;
     margin: 2px 4px;
     border-radius: 20px;
-    background-color: rgb(var(--md-sys-color-secondary-container));
-    color: rgb(var(--md-sys-color-on-secondary-container));
     font-family: var(--md-sys-typescale-label-large-font);
     line-height: var(--md-sys-typescale-label-large-line-height);
     font-size: var(--md-sys-typescale-label-large-size);
@@ -784,6 +798,13 @@ input[type=text], input[type=number], .el-textarea__inner {
     border: none;
     transition: background-color .1s ease-in-out,
                 color .1s ease-in-out;
+}
+.el-button:not(.el-button--text,.el-button--primary,.is-disabled),
+.el-button:not(.el-button--text,.el-button--primary,.is-disabled):hover,
+.el-button:not(.el-button--text,.el-button--primary,.is-disabled):focus,
+.el-button:not(.el-button--text,.el-button--primary,.is-disabled):active {
+    background-color: rgb(var(--md-sys-color-secondary-container));
+    color: rgb(var(--md-sys-color-on-secondary-container));
 }
 .el-button:not(.el-button--text,.el-button--primary).is-disabled {
     cursor: not-allowed;
@@ -809,20 +830,12 @@ input[type=text], input[type=number], .el-textarea__inner {
 .el-dropdown > .el-button:not(.el-button--text,.el-button--primary) i:last-child {
     padding-right: 12px;
 }
-.el-button:not(.el-button--text,.el-button--primary,.is-disabled):hover {
-    background-color: rgb(87, 80, 101);
-    color: rgb(var(--md-sys-color-on-secondary-container));
-    border: none;
+.el-button:not(.el-button--text,.el-button--primary,.is-disabled):hover::after {
+    background-color: rgba(var(--md-sys-color-on-secondary-container), .08);
 }
-.el-button:not(.el-button--text,.el-button--primary,.is-disabled):focus {
-    background-color: rgb(87, 80, 101);
-    color: rgb(var(--md-sys-color-on-secondary-container));
-    border: none;
-}
-.el-button:not(.el-button--text,.el-button--primary,.is-disabled):active {
-    background-color: rgb(93, 86, 107);
-    color: rgb(var(--md-sys-color-on-secondary-container));
-    border: none;
+.el-button:not(.el-button--text,.el-button--primary,.is-disabled):focus::after,
+.el-button:not(.el-button--text,.el-button--primary,.is-disabled):active::after {
+    background-color: rgba(var(--md-sys-color-on-secondary-container), .12);
 }
 
 
@@ -1146,6 +1159,8 @@ img.x-link.el-popover__reference {
 *:not(.x-user-dialog, .x-world-dialog, .x-avatar-dialog) > .el-dialog {
     width: auto !important;
     max-width: 560px !important;
+}
+*:not(.x-user-dialog, .x-world-dialog, .x-avatar-dialog) > .el-dialog > .el-dialog__body {
     overflow-y: auto;
 }
 .el-dialog {
