@@ -883,11 +883,11 @@ input[type=text], input[type=number], .el-textarea__inner {
 .el-button.el-button--text:not(.el-button--primary) > span:last-child {
     padding-right: 12px;
 }
-.el-button.el-button--text:not(.el-button--primary,.is-disabled):hover {
+.el-button.el-button--text:not(.el-button--primary,.is-disabled):hover::after {
     background-color: rgba(var(--md-sys-color-primary), 0.08);
 }
-.el-button.el-button--text:not(.el-button--primary,.is-disabled):focus,
-.el-button.el-button--text:not(.el-button--primary,.is-disabled):active {
+.el-button.el-button--text:not(.el-button--primary,.is-disabled):focus::after,
+.el-button.el-button--text:not(.el-button--primary,.is-disabled):active::after {
     background-color: rgba(var(--md-sys-color-primary), 0.12);
 }
 
@@ -1171,6 +1171,9 @@ img.x-link.el-popover__reference {
 }
 .el-message-box > *, .el-dialog > * {
     padding: 0;
+}
+.el-message-box__status.el-icon-info {
+    color: rgb(var(--md-sys-color-secondary));
 }
 .el-message-box__headerbtn, .el-dialog__headerbtn {
     display: none;
