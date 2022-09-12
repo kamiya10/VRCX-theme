@@ -234,18 +234,19 @@ input[type=text], input[type=number], .el-textarea__inner {
 .el-pagination .el-select .el-input .el-input__inner, .el-input--mini .el-input__icon {
     border-radius: 8px;
 }
-.el-pagination button.btn-prev,.el-pagination button.btn-next {
+.el-pagination button.btn-prev, .el-pagination button.btn-next {
+    position: relative;
     background-color: rgb(var(--md-sys-color-secondary-container));
     transition: background-color .1s ease-in-out,
                 color .1s ease-in-out;
 }
-.el-pagination button:not(:disabled):hover.btn-prev,.el-pagination button:not(:disabled):hover.btn-next, .el-pagination button:not(:disabled):focus.btn-prev,.el-pagination button:not(:disabled):focus.btn-next {
-    background-color: rgb(87, 80, 101);
+.el-pagination button:not(:disabled):hover.btn-prev::after, .el-pagination button:not(:disabled):hover.btn-next::after {
+    background-color: rgba(var(--md-sys-color-on-secondary-container), .08);
 }
-.el-pagination button:not(:disabled):active.btn-prev,.el-pagination button:not(:disabled):active.btn-next {
-    background-color: rgb(93, 86, 107);
+.el-pagination button:not(:disabled):focus.btn-prev::after, .el-pagination button:not(:disabled):focus.btn-next::after, .el-pagination button:not(:disabled):active.btn-prev::after, .el-pagination button:not(:disabled):active.btn-next::after {
+    background-color: rgba(var(--md-sys-color-on-secondary-container), .12);
 }
-.el-pagination button:disabled.btn-prev,.el-pagination button:disabled.btn-next {
+.el-pagination button:disabled.btn-prev, .el-pagination button:disabled.btn-next {
     background-color: rgba(var(--md-sys-color-on-surface), .12);
     color: rgba(var(--md-sys-color-on-surface), .38);
 }
@@ -255,23 +256,46 @@ input[type=text], input[type=number], .el-textarea__inner {
     padding-left: 12px;
     padding-right: 8px;
 }
+.el-pagination button.btn-prev::after {
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+}
+.el-pagination button.btn-next .el-icon-arrow-right {
+    rotate: -90deg;
+}
 .el-pagination button.btn-next {
     border-top-right-radius: 16px;
     border-bottom-right-radius: 16px;
     padding-left: 8px;
-    padding-right: 12px;
+    padding-right: 8px;
+}
+.el-pagination button.btn-next::after {
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
 }
 .el-pager li, .el-pager li.btn-quicknext, .el-pager li.btn-quickprev {
+    position: relative;
     padding: 0 8px;
     font-weight: 500;
     background-color: rgb(var(--md-sys-color-secondary-container));
     color: rgb(var(--md-sys-color-on-surface-variant));
 }
-.el-pager li:hover, .el-pager li:focus {
-    background-color: rgb(87, 80, 101);
+.el-pager li::after, .el-pagination button.btn-prev::after, .el-pagination button.btn-next::after, .el-tabs__item::after  {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    left: 0;
+    top: 0;
+    transition: background-color .1s ease-in-out;
 }
-.el-pager li:active {
-    background-color: rgb(93, 86, 107);
+.el-pager li:hover::after {
+    background-color: rgba(var(--md-sys-color-on-secondary-container), .08);
+}
+.el-pager li:focus::after, .el-pager li:active:after {
+    background-color: rgba(var(--md-sys-color-on-secondary-container), .12);
 }
 .el-pager li.active {
     font-weight: 600;
@@ -1006,6 +1030,7 @@ img.x-link.el-popover__reference {
 }
 
 .el-tabs__item {
+    position: relative;
     height: 40px;
     border-radius: 20px;
     color: rgb(var(--md-sys-color-on-surface-variant));
@@ -1022,14 +1047,20 @@ img.x-link.el-popover__reference {
     margin-right: 4px;
 }
 
-.el-tabs__item:hover, .el-tabs__item:focus {
-    background-color: rgb(87, 80, 101);
+.el-tabs__item::after {
+    border-radius: 20px;
+}
+
+.el-tabs__item:hover, .el-tabs__item:focus, .el-tabs__item:active {
     color: rgb(var(--md-sys-color-on-surface));
 }
 
-.el-tabs__item:active {
-    background-color: rgb(93, 86, 107);
-    color: rgb(var(--md-sys-color-on-surface));
+.el-tabs__item:hover::after {
+    background-color: rgba(var(--md-sys-color-on-secondary-container), .08);
+}
+
+.el-tabs__item:focus::after, .el-tabs__item:active::after {
+    background-color: rgba(var(--md-sys-color-on-secondary-container), .12);
 }
 
 .el-tabs__item.is-active {
