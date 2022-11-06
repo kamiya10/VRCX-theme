@@ -1794,3 +1794,25 @@ col[name="el-table_32_column_218"] { width: 120px; }
 .el-table_41_column_287,
 .el-table_41_column_291
  { text-align: center !important; }
+
+
+/* Notification Position */
+svg {
+    width: 360px;
+    height: 240px;
+    padding-right: 0 !important;
+}
+svg > path {
+    fill: rgb(var(--md-sys-color-secondary-container)) !important;
+}
+svg > rect {
+    fill: rgb(var(--md-sys-color-secondary-container)) !important;
+}
+svg + .el-radio-group {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 400px;
+    height: 200px;
+}
