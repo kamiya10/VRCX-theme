@@ -810,7 +810,7 @@ input[type=text], input[type=number], .el-textarea__inner {
 
 /* ---------- Filled tonal button ---------- */
 
-.el-button:not(.el-button--text,.el-button--primary) {
+.el-button:not(.el-button--text,.el-button--primary), .el-button-group>.el-button:first-child:last-child {
     height: 40px;
     padding: 0;
     margin: 2px 4px;
