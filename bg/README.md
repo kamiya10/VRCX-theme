@@ -1,8 +1,8 @@
 # Background Theme
 
-Image is from 海老原べにこ @ymdbnk on twitter\
-https://twitter.com/ymdbnk\
-https://www.pixiv.net/artworks/107057212\
+Image is from 海老原べにこ @ymdbnk on twitter \
+https://twitter.com/ymdbnk \
+https://www.pixiv.net/artworks/107057212
 
 Image can be changed on line 7
 
